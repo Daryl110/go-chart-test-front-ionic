@@ -1,5 +1,5 @@
 import {Component, OnInit } from '@angular/core';
-import { D3, chartJS } from '@daryl110/go-chart';
+import { chartJS, D3 } from '@daryl110/go-chart';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ export class HomePage implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    chartJS.barChart(
+    /*chartJS.barChart(
       'titulo',
       document.getElementById('graficos'),
       'grafico_1',
@@ -35,15 +35,11 @@ export class HomePage implements OnInit {
       (value) => {
         alert(`Este es el valor ${value}`);
       }
-    );
-
-    /* document.getElementById('graficos').append(D3.treeChart({
-      name: 'root',
-      children: [
+    );*/
+    D3.treeChart(document.getElementById('graficos'), 'grafico_1', { name: 'root', children: [
         {
           name: 'node_1'
         }
-      ]
-    })); */
+      ]});
   }
 }
