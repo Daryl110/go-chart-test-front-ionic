@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  nasa_api_config: {
+    url_base: "https://api.nasa.gov",
+    api_key: "WdxSnzI8uiRezkI9ceDzRpQe2QfVgXK8qDrdQnyN"
+  }
 };
 
 /*
