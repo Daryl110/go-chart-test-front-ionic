@@ -13,7 +13,6 @@ export class NasaApiService {
 
   API_URL_BASE: string = NASA_CONFIG.url_base;
   API_KEY: string = NASA_CONFIG.api_key;
-
   private nasaMarsWeather: NasaApiMarsWeather;
 
   constructor(

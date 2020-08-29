@@ -1,7 +1,8 @@
 import {NasaApiService} from "./nasa.api.service";
-import {UtilsService} from "../utils.service";
+import { UtilsService } from "../utils.service";
 
 export class NasaApiMarsWeather {
+
     API_URL: string = `${this.nasaService.API_URL_BASE}/insight_weather/?api_key=${this.nasaService.API_KEY}&feedtype=json&ver=1.0`
 
     constructor(private nasaService: NasaApiService, private utilsService: UtilsService) { }

@@ -8,6 +8,9 @@
 
 <ion-content>
   <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center" style="font-size: 35px !important;">NASA API</ion-card-title>
+    </ion-card-header>
     <ion-card-content>
       <ion-grid>
         <ion-row>
@@ -15,8 +18,33 @@
             <iframe src='https://mars.nasa.gov/layout/embed/image/insightweather/' width='1000' height='600'  scrolling='no' frameborder='0'></iframe>
           </ion-col>
           <ion-col>
-            <ion-col><div id="mars_weather_container" class="nasa_mars_weather_bar"></div></ion-col>
+            <ion-col><div id="mars_weather_container"></div></ion-col>
           </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center" style="font-size: 35px !important;">POKEMON API</ion-card-title>
+      <hr>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div id="poke_types_polar"></div>
+          </ion-col>
+          <ion-col>
+            <div id="poke_types_radar"></div>
+          </ion-col>
+        </ion-row>
+        <ion-row style="margin-top: 20px">
+          <ion-col size="5">
+            <ion-label class="ion-text-center" style="margin-left: 40% !important;" color="dark">Pokemon types (collapsableTreeChart)</ion-label>
+            <div id="collapsable_tree_chart_poke_types"></div>
+          </ion-col>
+          <ion-col size="7"><div id="poke_types_pie" style="margin-top: 30% !important;"></div></ion-col>
         </ion-row>
       </ion-grid>
     </ion-card-content>
