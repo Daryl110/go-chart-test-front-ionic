@@ -17,6 +17,29 @@
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDOTz5HRBrwP2bSJNgjE8pAZGoVCCqX1mM",
+      authDomain: "pruebas-graph.firebaseapp.com",
+      databaseURL: "https://pruebas-graph.firebaseio.com",
+      projectId: "pruebas-graph",
+      storageBucket: "pruebas-graph.appspot.com",
+      messagingSenderId: "784719233518",
+      appId: "1:784719233518:web:ba2e195370cf3d72478eff",
+      measurementId: "G-JRP3568ESS"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
 </head>
 
 <body>
