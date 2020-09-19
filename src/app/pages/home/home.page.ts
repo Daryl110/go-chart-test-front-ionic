@@ -16,7 +16,7 @@ export class HomePage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.nasaApiService.getMarsWeather().then(({ data, keys}) => {
+    /*this.nasaApiService.getMarsWeather().then(({ data, keys}) => {
 
       const arrayData = data.map((e, i) => ({
         data: [
@@ -111,7 +111,20 @@ export class HomePage implements OnInit {
         650,
         1300
       );
-    });
+    });*/
+
+    D3.bubbleDragChart(
+      document.getElementById('bubble_drag'),
+      'bubble_drag_chart',
+      [
+        {
+          cat: 'Total abonados',
+          desc: 'Total abonados: 947183',
+          name: 'ALMACENES EXITO INVERSIONES S.A.S.',
+          value: 1,
+        }
+      ]
+    );
   }
 
   getPokemonTypeWithId = (results) => results.map(({ url, name }) => ({
