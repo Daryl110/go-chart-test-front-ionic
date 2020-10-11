@@ -1,0 +1,29 @@
+name: Firebase_hosting_deploy
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    types: [ closed ]
+    branches: [ master ]
+
+jobs:
+  firebase-hosting-deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: '10.x'
+      - run: npm install
+      - run: npm run build
+      - uses: FirebaseExtended/action-hosting-deploy@v0.3-alpha
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_ACCOUNT_INFO }}
+          channelId: live
+          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
