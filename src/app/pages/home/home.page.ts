@@ -137,6 +137,8 @@ export class HomePage implements OnInit {
         const keys = Object.keys(element);
         let countGroup = 1;
 
+        dataLabelsBubbleDrag.add('all');
+
         for (const key of keys) {
           const value = element[key];
           this.dataBubbleDragChart.push({
@@ -161,12 +163,16 @@ export class HomePage implements OnInit {
     this.deleteElementFromView('covid_all_regions', 'all_regions_bubble_drag_chart');
 
     let auxMaxValue = 0;
-    let dataFiltered = this.dataBubbleDragChart.filter((element) => element.group_id === value);
-    dataFiltered.forEach((element) => {
-      if (element.value > auxMaxValue) auxMaxValue = element.value;
-    });
+    let diffAll = value !== 'all';
+    let dataFiltered = diffAll ? this.dataBubbleDragChart.filter((element) => element.group_id === value) : this.dataBubbleDragChart;
+    if (diffAll) {
+      dataFiltered.forEach((element) => {
+        if (element.value > auxMaxValue) auxMaxValue = element.value;
+      });
+    }
 
-    let radiusRange = auxMaxValue / (auxMaxValue.toString().replace('.', '').length * 10);
+    let radiusRange = diffAll ? auxMaxValue / (auxMaxValue.toString().replace('.', '').length * 10)
+      : undefined;
 
     this.createBubbleDragChartAllRegions(dataFiltered, radiusRange);
   }
