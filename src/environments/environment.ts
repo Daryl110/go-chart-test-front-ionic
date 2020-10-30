@@ -8,7 +8,8 @@ export const environment = {
     url_base: 'https://api.nasa.gov',
     api_key: 'WdxSnzI8uiRezkI9ceDzRpQe2QfVgXK8qDrdQnyN'
   },
-  poke_api_url: 'https://pokeapi.co/api/v2'
+  poke_api_url: 'https://pokeapi.co/api/v2',
+  corona_api_url: 'https://api.quarantine.country'
 };
 
 /*

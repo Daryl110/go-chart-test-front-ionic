@@ -12,41 +12,115 @@
       <ion-card-title class="ion-text-center" style="font-size: 35px !important;">NASA API</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <iframe src='https://mars.nasa.gov/layout/embed/image/insightweather/' width='100%' height='100%'  scrolling='no' frameborder='0'></iframe>
-          </ion-col>
-          <ion-col>
-            <ion-col><div id="mars_weather_container"></div></ion-col>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <ion-slides class="total_size">
+        <ion-slide class="total_size">
+          <div style="position: relative" class="total_size">
+            <iframe src='https://mars.nasa.gov/layout/embed/image/insightweather/'
+                    style="height: 40em !important; width: 100% !important;"
+                    scrolling='no' frameborder='0'></iframe>
+            <div style="position: absolute;
+                background-color: transparent;
+                top: 0;
+                left: 0;
+                right: 0;
+                margin: 0 auto;" class="total_size"></div>
+          </div>
+        </ion-slide>
+        <ion-slide class="total_size">
+          <div id="mars_weather_container" class="total_size">
+            <h1 class="ion-text-center">Bar Chart</h1>
+          </div>
+        </ion-slide>
+      </ion-slides>
     </ion-card-content>
   </ion-card>
   <ion-card>
     <ion-card-header>
-      <ion-card-title class="ion-text-center" style="font-size: 35px !important;">POKEMON API</ion-card-title>
-      <hr>
+      <ion-card-title class="ion-text-center" style="font-size: 35px !important;">Pokemon API</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <div id="poke_types_polar"></div>
-          </ion-col>
-          <ion-col>
-            <div id="poke_types_radar"></div>
-          </ion-col>
-        </ion-row>
-        <ion-row style="margin-top: 20px">
-          <ion-col size="5">
-            <ion-label class="ion-text-center" style="margin-left: 40% !important;" color="dark">Pokemon types (collapsableTreeChart)</ion-label>
-            <div id="collapsable_tree_chart_poke_types"></div>
-          </ion-col>
-          <ion-col size="7"><div id="poke_types_pie" style="margin-top: 30% !important;"></div></ion-col>
-        </ion-row>
-      </ion-grid>
+      <ion-slides class="total_size">
+        <ion-slide class="total_size">
+          <div class="total_size" id="poke_types_doughnut">
+            <h1>Doughnut Chart</h1>
+          </div>
+        </ion-slide>
+        <ion-slide class="total_size">
+          <div class="total_size" id="poke_types_polar">
+            <h1>Polar Area Chart</h1>
+          </div>
+        </ion-slide>
+        <ion-slide class="total_size">
+          <div class="total_size" id="poke_types_pie">
+            <h1>Pie Chart</h1>
+          </div>
+        </ion-slide>
+        <ion-slide class="total_size">
+          <ion-grid>
+            <ion-row class="ion-align-items-center ion-text-center total_size" style="margin-bottom: 10px">
+              <h1 class="ion-text-center total_size">Collapsable Tree Chart</h1>
+            </ion-row>
+            <ion-row class="ion-align-items-center ion-text-center total_size" style="margin-bottom: 10px">
+              <h2 class="ion-text-center total_size">Pokemon for each type (Collapsable Tree Chart)</h2>
+            </ion-row>
+            <ion-row>
+              <div class="total_size" id="collapsable_tree_chart_poke_types"></div>
+            </ion-row>
+          </ion-grid>
+        </ion-slide>
+      </ion-slides>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center" style="font-size: 35px !important;">Covid-19 API</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-slides class="total_size">
+        <ion-slide class="total_size">
+          <ion-grid class="total_size">
+            <ion-row class="total_size">
+              <ion-label>Region</ion-label>
+              <ion-item class="total_size">
+                <ionic-selectable
+                        size="large"
+                        (onChange)="createLineChartWithEvent($event)"
+                        [items]="regions"
+                        itemTextField="name"
+                        [canSearch]="true">
+                </ionic-selectable>
+              </ion-item>
+            </ion-row>
+            <ion-row>
+              <div class="total_size" id="covid_data_regions">
+                <h1>Line Chart</h1>
+              </div>
+            </ion-row>
+          </ion-grid>
+        </ion-slide>
+        <ion-slide class="total_size">
+          <ion-grid>
+            <ion-row class="ion-align-items-center ion-text-center total_size" style="margin-bottom: 10px">
+              <h1 class="ion-text-center total_size">Bubble Drag Chart</h1>
+              <ion-label>Filter</ion-label>
+              <ion-item class="total_size">
+                <ionic-selectable
+                        size="large"
+                        [items]="dataLabelsBubbleDrag"
+                        [canSearch]="true"
+                        (onChange)="filterBubbleDragChart($event)">
+                </ionic-selectable>
+              </ion-item>
+            </ion-row>
+            <ion-row class="ion-align-items-center ion-text-center total_size" style="margin-bottom: 10px">
+              <h2 class="ion-text-center total_size">Data of all region (Bubble Drag Chart)</h2>
+            </ion-row>
+            <ion-row>
+              <div class="total_size" id="covid_all_regions"></div>
+            </ion-row>
+          </ion-grid>
+        </ion-slide>
+      </ion-slides>
     </ion-card-content>
   </ion-card>
 </ion-content>
