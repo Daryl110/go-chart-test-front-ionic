@@ -9,24 +9,28 @@ export class NasaApiMarsWeather {
 
     getWeather = () => this.nasaService.httpClient.get(this.API_URL)
       .toPromise().then((data: any) => {
-          const { sol_keys: solKeys } = data;
+          const { sol_keys: solKeys } : { sol_keys: [] } = data;
+          const solKeysArray = [];
           const arrayMarsWeather = [];
 
           for (const solKey of solKeys) {
-              const solValueWeather = data[solKey]['AT'];
+              const { AT: solValueWeather } = data[solKey];
 
-              solValueWeather.av = this.utilsService.centigradeToFahrenheit(solValueWeather.av);
-              solValueWeather.mn = this.utilsService.centigradeToFahrenheit(solValueWeather.mn);
-              solValueWeather.mx = this.utilsService.centigradeToFahrenheit(solValueWeather.mx);
+              if (solValueWeather) {
+                  solValueWeather.av = this.utilsService.centigradeToFahrenheit(solValueWeather.av);
+                  solValueWeather.mn = this.utilsService.centigradeToFahrenheit(solValueWeather.mn);
+                  solValueWeather.mx = this.utilsService.centigradeToFahrenheit(solValueWeather.mx);
 
-              delete solValueWeather.ct;
+                  delete solValueWeather.ct;
 
-              arrayMarsWeather.push(solValueWeather);
+                  arrayMarsWeather.push(solValueWeather);
+                  solKeysArray.push(solKey);
+              }
           }
 
           return {
             data: arrayMarsWeather,
-            keys: solKeys
+            keys: solKeysArray
           };
       });
 }
